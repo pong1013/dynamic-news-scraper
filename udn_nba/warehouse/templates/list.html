@@ -1,0 +1,11 @@
+<h1>NBA Focus News</h1>
+
+<table border="1">
+  {% for x in news %}
+  <tr>
+    <td>{{ x.publish_time }}</td>
+    <td><a href="content/{{ x.id }}">{{ x.title }}</a></td>
+    <td>{{ x.author }}</td>
+  </tr>
+  {% endfor %}
+</table>
