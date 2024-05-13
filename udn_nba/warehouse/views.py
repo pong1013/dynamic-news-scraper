@@ -20,6 +20,7 @@ def list(request):
 def content(request, id):
     news = UdnFocus.objects.get(id=id)
     
+    # clean content
     marks = str.maketrans("","",",[]'")
     cleaned_content = news.content.translate(marks)
     
