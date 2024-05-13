@@ -2,7 +2,7 @@
 
 - [x] 抓取 http://tw-nba.udn.com/nba/index 中的焦點新聞。
 - [x] 使用 [Django](https://www.djangoproject.com/) 設計恰當的 Model，並將所抓取新聞存儲至 DB。
-- [ ] 使用 [Django REST Framework](http://www.django-rest-framework.org/) 配合 AJAX 實現以下頁面：
+- [x] 使用 [Django REST Framework](http://www.django-rest-framework.org/) 配合 AJAX 實現以下頁面：
 	 * 焦點新聞列表
 	 * 新聞詳情頁面
 - [x] 以 Pull-Request 的方式將代碼提交。
