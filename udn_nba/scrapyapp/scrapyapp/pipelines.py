@@ -8,19 +8,30 @@
 # from itemadapter import ItemAdapter
 from warehouse.models import UdnFocus
 from asgiref.sync import sync_to_async
+from django.core.exceptions import ObjectDoesNotExist
 
 class ScrapyappPipeline:
     async def process_item(self, item, spider):
         try:
             # Check if exists
-            news = UdnFocus.objects.get(title=item['title'])
+            news = await sync_to_async(UdnFocus.objects.get)(title=item['title'])            
             return item
-        except:
-            news = UdnFocus()
+        except ObjectDoesNotExist:
+            pass
+        
+            
+        news = UdnFocus()
         news.title = item['title']
         news.author = item['author']
         news.publish_time = item['publish_time']
         news.content = item['content']
         await sync_to_async(news.save)()
         
+        # Check if total records exceed 10
+        if await sync_to_async(UdnFocus.objects.count)() > 10:
+            # Delete the oldest record
+            oldest_news = await sync_to_async(UdnFocus.objects.order_by('publish_time').first)()
+            await sync_to_async(oldest_news.delete)()
+        
+            
         return item
