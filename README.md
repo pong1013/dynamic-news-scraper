@@ -1,4 +1,4 @@
-# Unnotech Backend Engineer 徵才小專案
+# 徵才小專案
 
 - [x] 抓取 http://tw-nba.udn.com/nba/index 中的焦點新聞。
 - [x] 使用 [Django](https://www.djangoproject.com/) 設計恰當的 Model，並將所抓取新聞存儲至 DB。
