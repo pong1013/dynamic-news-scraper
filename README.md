@@ -11,29 +11,46 @@
 - [x] 使用 Scrapy。
 - [x] 實現爬蟲自動定時抓取。
 - [ ] 使用 Websocket 服務，抓取到新的新聞時立即通知前端頁面。
-- [ ] 將本 demo 部署到伺服器並可正確運行。
+- [x] 將本 demo 部署到伺服器並可正確運行。
 - [ ] 所實現新聞列表 API 可承受 100 QPS 的壓力測試。
 
 ## Start server
 
 Run git project or docker image:
 
-- clone this project
+- Clone this project
     
-    ```python
+    ```shell
     git clone https://github.com/pong1013/django-scrapy.git
     ```
     
     Run `start.sh`
     
-    ```python
+    ```shell
     cd udn_nba
     ./start.sh
     ```
     
-- image
+- Pull Image
     
-    ```python
+    ```shell
     docker pull pong1013/udn-nba
     docker run -p 8000:8000 -p 6379:6379 pong1013/udn-nba
     ```
+## Deploy on GCP
+Go to cloud shell.
+1. Pull Image
+    ```shell
+    sudo docker pull pong1013/udn-nba:hello_latest
+    sudo docker run -d --platform linux/arm64 -p 8000:8000 -p 6379:6379 pong1013/udn-nba:hello_latest
+    ```
+2. List running container and check logs
+    ```shell
+    sudo docker ps
+    sudo docker logs <container_id>
+    ```
+3. Access web
+    ```shell
+    http://[EXTERNAL_IP]:8000
+    ```
+    [Demo video](https://drive.google.com/file/d/1PwxEXjzfb9MtCpBypuNRhSzT1l_Mt8Xr/view?usp=drive_link)
