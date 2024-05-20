@@ -35,5 +35,5 @@ Run git project or docker image:
     
     ```python
     docker pull pong1013/udn-nba
-    docker run -p 8000:8000 -p 6379:6379
+    docker run -p 8000:8000 -p 6379:6379 pong1013/udn-nba
     ```
