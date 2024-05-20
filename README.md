@@ -13,3 +13,27 @@
 - [ ] 使用 Websocket 服務，抓取到新的新聞時立即通知前端頁面。
 - [ ] 將本 demo 部署到伺服器並可正確運行。
 - [ ] 所實現新聞列表 API 可承受 100 QPS 的壓力測試。
+
+## Start server
+
+Run git project or docker image:
+
+- clone this project
+    
+    ```python
+    git clone https://github.com/pong1013/django-scrapy.git
+    ```
+    
+    Run `start.sh`
+    
+    ```python
+    cd udn_nba
+    ./start.sh
+    ```
+    
+- image
+    
+    ```python
+    docker pull pong1013/udn-nba
+    docker run -p 8000:8000 -p 6379:6379 pong1013/udn-nba
+    ```
