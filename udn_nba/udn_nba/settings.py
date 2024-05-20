@@ -134,6 +134,6 @@ CELERY_BROKER_URL = 'redis://localhost:6379/0'
 CELERY_BEAT_SCHEDULE = {
     'run-every-hour': {
         'task': 'scrapyapp.tasks.run_scrapy_spider',
-        'schedule': 60,
+        'schedule': 600,
     },
 }

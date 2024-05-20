@@ -14,26 +14,26 @@ from django.db import transaction
 class ScrapyappPipeline:
     async def process_item(self, item, spider):
         try:
-            # Check if exists
-            news = await sync_to_async(UdnFocus.objects.get)(title=item['title'])            
+            # Check if the item already exists in the database
+            news = await sync_to_async(UdnFocus.objects.get)(title=item['title'])
             return item
         except ObjectDoesNotExist:
-            pass
-        
-            
-        async with transaction.atomic():
             news = UdnFocus()
-            news.title = item['title']
-            news.author = item['author']
-            news.publish_time = item['publish_time']
-            news.content = item['content']
-            await sync_to_async(news.save)()
-            
-            # Check if total records exceed 10
-            if await sync_to_async(UdnFocus.objects.count)() > 10:
-                # Delete the oldest record
-                oldest_news = await sync_to_async(UdnFocus.objects.order_by('publish_time').first)()
-                await sync_to_async(oldest_news.delete)()
+
+        # Update the news item with the new data
+        news.title = item['title']
+        news.author = item['author']
+        news.publish_time = item['publish_time']
+        news.content = item['content']
         
-            
+        # Save the news item
+        await sync_to_async(news.save)()
+        
+        # Check if total records exceed 10 and delete the oldest if necessary
+        total_records = await sync_to_async(UdnFocus.objects.count)()
+        if total_records > 10:
+            oldest_news = await sync_to_async(UdnFocus.objects.order_by('publish_time').first)()
+            await sync_to_async(oldest_news.delete)()
+
         return item
+
