@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-6j69bd%o&ed7x&_jx9z%p%y=&a9)97gx=4uvh#s0b2($##40rl
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     "warehouse",
     "scrapyapp",
     "rest_framework",
-    "django_celery_beat"
+    "django_celery_beat",
 ]
 
 MIDDLEWARE = [
@@ -120,7 +120,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = "/static/"
+STATIC_URL = "static/"
+STATICFILES_DIRS = ["static/"]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -128,12 +129,12 @@ STATIC_URL = "/static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # celery
-CELERY_BROKER_URL = 'redis://localhost:6379/0'
+CELERY_BROKER_URL = "redis://localhost:6379/0"
 # CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
 
 CELERY_BEAT_SCHEDULE = {
-    'run-every-hour': {
-        'task': 'scrapyapp.tasks.run_scrapy_spider',
-        'schedule': 600,
+    "run-every-hour": {
+        "task": "scrapyapp.tasks.run_scrapy_spider",
+        "schedule": 600,
     },
 }

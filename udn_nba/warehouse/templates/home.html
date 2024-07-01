@@ -1,21 +1,21 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NBA Focus News</title>
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
-  </head>
-  <body>
-    <div class="container">
-      
-    </div>
-  </body>
-</html>
-
-
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Clean Blog - Start Bootstrap Theme</title>
+        <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %}" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+    </head>
     <body>
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
@@ -41,8 +41,8 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="site-heading">
-                            <h1>NBA Focus News</h1>
-                            <span class="subheading">Watching NBA Headline News</span>
+                            <h1>Hello NBA!</h1>
+                            <span class="subheading">Welcome to my Django project!</span>
                         </div>
                     </div>
                 </div>
@@ -57,23 +57,33 @@
                     <!-- Post preview-->
                     <div class="post-preview">
                         <center>
-
-                      </br>
-                        {% for x in news %}
-                        <div class="list-group">
-                          <a href="{% url 'news-detail' x.id %}" class="list-group-item list-group-item-action" >
-                            <div class="d-inline w-100 justify-content-between">
-                              <h4 class="mb-1">{{ x.title }}</h4>
-                              
-                              <small>{{ x.author }}</small>
+                        <h2 class="post-title">Watching NBA headline news</h2>
+                        <div id="carouselExampleIndicators" class="carousel slide">
+                            <div class="carousel-indicators">
+                              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
                             </div>
-                    
-                            <small>{{ x.publish_time }}</small>
-                          </a>
-                        </div>
-                      
-                        {% endfor %%}
-                  
+                            <div class="carousel-inner">
+                              <div class="carousel-item active">
+                                <a href="{%url 'news-list'%}"><img class="d-block w-100" src="{% static 'assets/img/home.jpg' %}" alt="..." /></a>
+                              </div>
+                              <div class="carousel-item active">
+                                <a href="{%url 'news-list'%}"><img class="d-block w-100" src="{% static 'assets/img/curry.jpg' %}" alt="..." /></a>
+                              </div>
+                              <div class="carousel-item active">
+                                <a href="{%url 'news-list'%}"><img class="d-block w-100" src="{% static 'assets/img/james.jpg' %}" alt="..." /></a>
+                              </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Next</span>
+                            </button>
+                          </div>
                     </center>
                     </div>
             </br></br>
