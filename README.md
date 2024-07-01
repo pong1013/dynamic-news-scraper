@@ -1,4 +1,4 @@
-# Python Web Spider
+## Introduction
 
 A Django-based web application to automatically scrape focal news from the UDN NBA website using Scrapy, store the data in a database with appropriate Django models, and display the news dynamically using Django REST Framework and AJAX. The application includes celery scheduled scraping and is deployed to a server on GCP for live operation.
 
