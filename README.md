@@ -22,15 +22,15 @@ Run git project or docker image:
 - Pull Image
     
     ```shell
-    docker pull pong1013/udn-nba
-    docker run -p 8000:8000 -p 6379:6379 pong1013/udn-nba
+    docker pull pong1013/nba-spider:latest
+    docker run -p 8000:8000 -p 6379:6379 pong1013/nba-spider:latest
     ```
 ## Deploy on GCP
 Go to cloud shell.
 1. Pull Image
     ```shell
-    sudo docker pull pong1013/udn-nba:hello_latest
-    sudo docker run -d --platform linux/arm64 -p 8000:8000 -p 6379:6379 pong1013/udn-nba:hello_latest
+    sudo docker pull pong1013/nba-spider:latest
+    sudo docker run -d --platform linux/arm64 -p 8000:8000 -p 6379:6379 pong1013/nba-spider:latest
     ```
 2. List running container and check logs
     ```shell
